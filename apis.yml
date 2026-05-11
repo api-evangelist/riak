@@ -1,0 +1,154 @@
+aid: riak
+name: Riak KV
+description: >-
+  Riak KV is a distributed NoSQL key-value database originally developed by
+  Basho Technologies, designed for high availability, fault tolerance, and
+  horizontal scalability across commodity hardware. Riak exposes two
+  client-facing APIs: a RESTful HTTP API for basic GET, PUT, POST, and
+  DELETE operations, and a higher-performance Protocol Buffers (PBC) API
+  spoken over TCP. Both APIs support buckets, objects, secondary indexes,
+  search, MapReduce, and CRDT data types.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Database
+  - NoSQL
+  - Key-Value Store
+  - Distributed Systems
+  - Open Source
+  - Basho
+  - CRDT
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/riak/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: riak:http-api
+    name: Riak KV HTTP API
+    description: >-
+      RESTful HTTP API for Riak KV providing GET, PUT, POST, and DELETE
+      access to buckets, objects, secondary indexes, search, MapReduce,
+      and CRDT data types. Default port is 8098. Authentication and
+      authorization are configured via Riak security on the server.
+    humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
+    baseURL: http://<your-riak-host>:8098
+    tags:
+      - HTTP API
+      - Key-Value
+      - Buckets
+      - MapReduce
+      - Secondary Indexes
+    properties:
+      - type: Documentation
+        url: https://docs.riak.com/riak/kv/latest/developing/api/http
+      - type: HTTP Bucket Operations
+        url: https://docs.riak.com/riak/kv/latest/developing/api/http/list-buckets.1.html
+      - type: HTTP Object Operations
+        url: https://docs.riak.com/riak/kv/latest/developing/api/http/fetch-object.1.html
+  - aid: riak:protocol-buffers
+    name: Riak Protocol Buffers Client API
+    description: >-
+      Higher-performance binary client API for Riak KV using Protocol
+      Buffers messages encoded over a long-lived TCP connection. Default
+      port is 8087. Each request message produces one or more response
+      messages on the same connection. Message definitions are published
+      in the open source basho/riak_pb repository.
+    humanURL: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers
+    baseURL: pb://<your-riak-host>:8087
+    tags:
+      - Protocol Buffers
+      - PBC
+      - Binary Protocol
+      - Key-Value
+      - High Performance
+    properties:
+      - type: Documentation
+        url: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers
+      - type: Message Definitions
+        url: https://github.com/basho/riak_pb
+      - type: Encoding Reference
+        url: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers/index.html
+
+common:
+  - type: Website
+    url: https://riak.com
+  - type: Documentation
+    url: https://docs.riak.com/riak/kv/latest/
+  - type: API Documentation
+    url: https://docs.riak.com/riak/kv/latest/developing/api/
+  - type: GitHub Organization
+    url: https://github.com/basho
+  - type: Source Code
+    url: https://github.com/basho/riak
+  - type: Protocol Buffers Repo
+    url: https://github.com/basho/riak_pb
+  - type: Client Libraries
+    url: https://docs.riak.com/riak/kv/latest/developing/client-libraries/
+  - type: Download
+    url: https://docs.riak.com/riak/kv/latest/setup/installing/
+  - type: License
+    url: https://github.com/basho/riak/blob/develop/LICENSE
+features:
+  - name: Distributed Key-Value Store
+    description: >-
+      Masterless ring-based key-value store with configurable
+      replication and tunable consistency.
+  - name: High Availability
+    description: >-
+      No single point of failure with eventual consistency,
+      hinted handoff, and read repair across the cluster.
+  - name: Secondary Indexes
+    description: >-
+      Tag objects with secondary index terms and query them via
+      the HTTP or Protocol Buffers APIs.
+  - name: MapReduce
+    description: >-
+      Run JavaScript or Erlang MapReduce jobs against buckets
+      and key lists via the API.
+  - name: Riak Search
+    description: >-
+      Full-text search powered by Solr integration with
+      schema-aware indexing of stored objects.
+  - name: CRDT Data Types
+    description: >-
+      Convergent replicated data types including counters,
+      sets, maps, and registers for conflict-free updates.
+solutions:
+  - name: Highly Available Storage
+    description: >-
+      Deploy as the primary store for applications that must
+      remain available across node and datacenter failures.
+  - name: Session and Profile Storage
+    description: >-
+      Store user sessions, profiles, and preferences at scale
+      with predictable low-latency reads and writes.
+  - name: Distributed Caching
+    description: >-
+      Operate as a durable distributed cache for content and
+      configuration that must survive node failure.
+useCases:
+  - name: Multi-Datacenter Replication
+    description: >-
+      Replicate data across datacenters for disaster recovery
+      and geographic distribution.
+  - name: IoT and Sensor Data Ingest
+    description: >-
+      Ingest high-volume key-value writes from sensors and
+      devices with horizontal scaling.
+  - name: Shopping Cart Storage
+    description: >-
+      Store shopping carts and other always-writeable data
+      using CRDT data types for conflict-free merging.
+integrations:
+  - name: Solr
+    description: Full-text indexing via Riak Search powered by Solr
+  - name: Erlang
+    description: Native Erlang client and pluggable MapReduce
+  - name: Java
+    description: Official Java client speaking the Protocol Buffers API
+  - name: Python
+    description: Official Python client supporting HTTP and Protocol Buffers
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
