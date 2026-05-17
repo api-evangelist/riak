@@ -77,7 +77,7 @@ common:
     url: https://docs.riak.com/riak/kv/latest/
   - type: API Documentation
     url: https://docs.riak.com/riak/kv/latest/developing/api/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/basho
   - type: Source Code
     url: https://github.com/basho/riak
