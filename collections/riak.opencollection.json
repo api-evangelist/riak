@@ -1,0 +1,595 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Riak KV HTTP API",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List available HTTP resources",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/"
+      },
+      "docs": "List available HTTP resources"
+    },
+    {
+      "info": {
+        "name": "Health check",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/ping"
+      },
+      "docs": "Health check"
+    },
+    {
+      "info": {
+        "name": "Server statistics",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/stats"
+      },
+      "docs": "Server statistics"
+    },
+    {
+      "info": {
+        "name": "List buckets in a bucket type",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/types/:type/buckets",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "buckets",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List buckets in a bucket type"
+    },
+    {
+      "info": {
+        "name": "Get bucket properties",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/props",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get bucket properties"
+    },
+    {
+      "info": {
+        "name": "Set bucket properties",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/props",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Set bucket properties"
+    },
+    {
+      "info": {
+        "name": "Reset bucket properties to defaults",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/props",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Reset bucket properties to defaults"
+    },
+    {
+      "info": {
+        "name": "List keys in a bucket",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/keys",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "keys",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List keys in a bucket"
+    },
+    {
+      "info": {
+        "name": "Store an object with a server-generated key",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/keys",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Store an object with a server-generated key"
+    },
+    {
+      "info": {
+        "name": "Fetch an object",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/keys/:key",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Fetch an object"
+    },
+    {
+      "info": {
+        "name": "Store an object (alias for PUT with auto vector clock handling)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/keys/:key",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Store an object (alias for PUT with auto vector clock handling)"
+    },
+    {
+      "info": {
+        "name": "Store an object",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/keys/:key",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Store an object"
+    },
+    {
+      "info": {
+        "name": "Delete an object",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/keys/:key",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete an object"
+    },
+    {
+      "info": {
+        "name": "Secondary index exact-match query",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/index/:index/:value",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "index",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "value",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Secondary index exact-match query"
+    },
+    {
+      "info": {
+        "name": "Secondary index range query",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/index/:index/:start/:end",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "index",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "start",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "end",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Secondary index range query"
+    },
+    {
+      "info": {
+        "name": "Fetch a CRDT data type (counter, set, map, hll)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/datatypes/:key",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Fetch a CRDT data type (counter, set, map, hll)"
+    },
+    {
+      "info": {
+        "name": "Update a CRDT data type",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://{host}:{port}/types/:type/buckets/:bucket/datatypes/:key",
+        "params": [
+          {
+            "name": "type",
+            "value": "",
+            "type": "path",
+            "description": "Bucket type (use \"default\" for the default bucket type)"
+          },
+          {
+            "name": "bucket",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Update a CRDT data type"
+    },
+    {
+      "info": {
+        "name": "Execute a MapReduce job",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://{host}:{port}/mapred",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute a MapReduce job"
+    },
+    {
+      "info": {
+        "name": "Execute a Riak Search (Solr) query",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/search/query/:index_name",
+        "params": [
+          {
+            "name": "index_name",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "q",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "wt",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Execute a Riak Search (Solr) query"
+    },
+    {
+      "info": {
+        "name": "List all search indexes",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/search/index"
+      },
+      "docs": "List all search indexes"
+    },
+    {
+      "info": {
+        "name": "Get a search index definition",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/search/index/:index_name",
+        "params": [
+          {
+            "name": "index_name",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a search index definition"
+    },
+    {
+      "info": {
+        "name": "Create or update a search index",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://{host}:{port}/search/index/:index_name",
+        "params": [
+          {
+            "name": "index_name",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create or update a search index"
+    },
+    {
+      "info": {
+        "name": "Delete a search index",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://{host}:{port}/search/index/:index_name",
+        "params": [
+          {
+            "name": "index_name",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete a search index"
+    },
+    {
+      "info": {
+        "name": "Get a search schema",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://{host}:{port}/search/schema/:schema_name",
+        "params": [
+          {
+            "name": "schema_name",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a search schema"
+    },
+    {
+      "info": {
+        "name": "Store a search schema",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://{host}:{port}/search/schema/:schema_name",
+        "params": [
+          {
+            "name": "schema_name",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Store a search schema"
+    }
+  ],
+  "bundled": true
+}
