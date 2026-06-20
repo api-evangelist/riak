@@ -9,7 +9,7 @@ description: >-
   spoken over TCP. Both APIs support buckets, objects, secondary indexes,
   search, MapReduce, and CRDT data types.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Database
   - NoSQL
