@@ -89,7 +89,7 @@ common:
     url: https://docs.riak.com/riak/kv/latest/setup/installing/
   - type: License
     url: https://github.com/basho/riak/blob/develop/LICENSE
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.riak.com/llms.txt
 features:
   - name: Distributed Key-Value Store
