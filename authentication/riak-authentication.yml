@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/riak-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BasicAuth
+  type: http
+  scheme: basic
+  description: |-
+    Riak KV supports optional security with HTTPS and basic auth or
+    certificate-based authentication. By default, the HTTP listener is
+    unauthenticated.
+  sources:
+  - openapi/riak-openapi.yml

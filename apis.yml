@@ -71,6 +71,10 @@ apis:
         url: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers/index.html
 
 common:
+  - type: DomainSecurity
+    url: security/riak-domain-security.yml
+  - type: Authentication
+    url: authentication/riak-authentication.yml
   - type: Website
     url: https://riak.com
   - type: Documentation
