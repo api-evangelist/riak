@@ -71,6 +71,8 @@ apis:
         url: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers/index.html
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/riak-agentic-access.yml
   - type: DomainSecurity
     url: security/riak-domain-security.yml
   - type: Authentication
