@@ -1,0 +1,328 @@
+openapi: 3.1.0
+info:
+  title: Riak KV HTTP Mapred Types API
+  version: '2.2'
+  description: 'Riak KV exposes a RESTful HTTP API for interacting with buckets, keys,
+
+    bucket-type properties, secondary indexes, MapReduce, search, and CRDT
+
+    data types, alongside higher-performance Protocol Buffers (PBC) endpoints
+
+    over TCP. This specification describes the publicly documented HTTP
+
+    interface as published at docs.riak.com.
+
+    '
+  contact:
+    name: Riak KV documentation
+    url: https://docs.riak.com/riak/kv/latest/developing/api/http/
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://{host}:{port}
+  description: Riak KV HTTP listener (default port 8098)
+  variables:
+    host:
+      default: localhost
+    port:
+      default: '8098'
+tags:
+- name: Types
+paths:
+  /types/{type}/buckets:
+    get:
+      summary: List buckets in a bucket type
+      operationId: listBuckets
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - name: buckets
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - true
+          - stream
+      responses:
+        '200':
+          description: JSON list of bucket names
+      tags:
+      - Types
+  /types/{type}/buckets/{bucket}/props:
+    get:
+      summary: Get bucket properties
+      operationId: getBucketProps
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      responses:
+        '200':
+          description: Bucket property document
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Types
+    put:
+      summary: Set bucket properties
+      operationId: setBucketProps
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                props:
+                  type: object
+      responses:
+        '204':
+          description: Properties updated
+      tags:
+      - Types
+    delete:
+      summary: Reset bucket properties to defaults
+      operationId: resetBucketProps
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      responses:
+        '204':
+          description: Properties reset
+      tags:
+      - Types
+  /types/{type}/buckets/{bucket}/keys:
+    get:
+      summary: List keys in a bucket
+      operationId: listKeys
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - name: keys
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - true
+          - stream
+      responses:
+        '200':
+          description: JSON list of keys
+      tags:
+      - Types
+    post:
+      summary: Store an object with a server-generated key
+      operationId: storeObjectAutoKey
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '201':
+          description: Object created; key returned in Location header
+      tags:
+      - Types
+  /types/{type}/buckets/{bucket}/keys/{key}:
+    get:
+      summary: Fetch an object
+      operationId: fetchObject
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - $ref: '#/components/parameters/Key'
+      responses:
+        '200':
+          description: Object value with metadata in headers
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Object not found
+        '300':
+          description: Multiple sibling values (allow_mult)
+      tags:
+      - Types
+    put:
+      summary: Store an object
+      operationId: storeObject
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - $ref: '#/components/parameters/Key'
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Object stored
+        '204':
+          description: Object stored, no body returned
+      tags:
+      - Types
+    post:
+      summary: Store an object (alias for PUT with auto vector clock handling)
+      operationId: postObject
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - $ref: '#/components/parameters/Key'
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '204':
+          description: Object stored
+      tags:
+      - Types
+    delete:
+      summary: Delete an object
+      operationId: deleteObject
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - $ref: '#/components/parameters/Key'
+      responses:
+        '204':
+          description: Object deleted
+        '404':
+          description: Object not found
+      tags:
+      - Types
+  /types/{type}/buckets/{bucket}/index/{index}/{value}:
+    get:
+      summary: Secondary index exact-match query
+      operationId: secondaryIndexQuery
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - name: index
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of keys matching the index value
+      tags:
+      - Types
+  /types/{type}/buckets/{bucket}/index/{index}/{start}/{end}:
+    get:
+      summary: Secondary index range query
+      operationId: secondaryIndexRange
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - name: index
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: start
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: end
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of keys within the index range
+      tags:
+      - Types
+  /types/{type}/buckets/{bucket}/datatypes/{key}:
+    get:
+      summary: Fetch a CRDT data type (counter, set, map, hll)
+      operationId: fetchDataType
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - $ref: '#/components/parameters/Key'
+      responses:
+        '200':
+          description: CRDT value document
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Types
+    post:
+      summary: Update a CRDT data type
+      operationId: updateDataType
+      parameters:
+      - $ref: '#/components/parameters/Type'
+      - $ref: '#/components/parameters/Bucket'
+      - $ref: '#/components/parameters/Key'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Update applied
+      tags:
+      - Types
+components:
+  parameters:
+    Type:
+      name: type
+      in: path
+      required: true
+      description: Bucket type (use "default" for the default bucket type)
+      schema:
+        type: string
+    Key:
+      name: key
+      in: path
+      required: true
+      schema:
+        type: string
+    Bucket:
+      name: bucket
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: 'Riak KV supports optional security with HTTPS and basic auth or
+
+        certificate-based authentication. By default, the HTTP listener is
+
+        unauthenticated.
+
+        '

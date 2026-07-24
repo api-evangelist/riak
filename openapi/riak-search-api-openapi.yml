@@ -1,0 +1,171 @@
+openapi: 3.1.0
+info:
+  title: Riak KV HTTP Mapred Search API
+  version: '2.2'
+  description: 'Riak KV exposes a RESTful HTTP API for interacting with buckets, keys,
+
+    bucket-type properties, secondary indexes, MapReduce, search, and CRDT
+
+    data types, alongside higher-performance Protocol Buffers (PBC) endpoints
+
+    over TCP. This specification describes the publicly documented HTTP
+
+    interface as published at docs.riak.com.
+
+    '
+  contact:
+    name: Riak KV documentation
+    url: https://docs.riak.com/riak/kv/latest/developing/api/http/
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://{host}:{port}
+  description: Riak KV HTTP listener (default port 8098)
+  variables:
+    host:
+      default: localhost
+    port:
+      default: '8098'
+tags:
+- name: Search
+paths:
+  /search/query/{index_name}:
+    get:
+      summary: Execute a Riak Search (Solr) query
+      operationId: searchQuery
+      parameters:
+      - name: index_name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: wt
+        in: query
+        schema:
+          type: string
+          default: json
+      responses:
+        '200':
+          description: Solr-style query response
+      tags:
+      - Search
+  /search/index:
+    get:
+      summary: List all search indexes
+      operationId: listSearchIndexes
+      responses:
+        '200':
+          description: JSON list of search indexes
+      tags:
+      - Search
+  /search/index/{index_name}:
+    get:
+      summary: Get a search index definition
+      operationId: getSearchIndex
+      parameters:
+      - name: index_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Search index definition
+        '404':
+          description: Index not found
+      tags:
+      - Search
+    put:
+      summary: Create or update a search index
+      operationId: putSearchIndex
+      parameters:
+      - name: index_name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                schema:
+                  type: string
+      responses:
+        '204':
+          description: Index created or updated
+      tags:
+      - Search
+    delete:
+      summary: Delete a search index
+      operationId: deleteSearchIndex
+      parameters:
+      - name: index_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Index deleted
+      tags:
+      - Search
+  /search/schema/{schema_name}:
+    get:
+      summary: Get a search schema
+      operationId: getSearchSchema
+      parameters:
+      - name: schema_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Solr schema XML
+          content:
+            application/xml:
+              schema:
+                type: string
+      tags:
+      - Search
+    put:
+      summary: Store a search schema
+      operationId: putSearchSchema
+      parameters:
+      - name: schema_name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              type: string
+      responses:
+        '204':
+          description: Schema stored
+      tags:
+      - Search
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: 'Riak KV supports optional security with HTTPS and basic auth or
+
+        certificate-based authentication. By default, the HTTP listener is
+
+        unauthenticated.
+
+        '

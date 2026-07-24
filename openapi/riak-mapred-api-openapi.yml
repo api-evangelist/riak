@@ -1,0 +1,75 @@
+openapi: 3.1.0
+info:
+  title: Riak KV HTTP Mapred API
+  version: '2.2'
+  description: 'Riak KV exposes a RESTful HTTP API for interacting with buckets, keys,
+
+    bucket-type properties, secondary indexes, MapReduce, search, and CRDT
+
+    data types, alongside higher-performance Protocol Buffers (PBC) endpoints
+
+    over TCP. This specification describes the publicly documented HTTP
+
+    interface as published at docs.riak.com.
+
+    '
+  contact:
+    name: Riak KV documentation
+    url: https://docs.riak.com/riak/kv/latest/developing/api/http/
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://{host}:{port}
+  description: Riak KV HTTP listener (default port 8098)
+  variables:
+    host:
+      default: localhost
+    port:
+      default: '8098'
+tags:
+- name: Mapred
+paths:
+  /mapred:
+    post:
+      summary: Execute a MapReduce job
+      operationId: mapReduce
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - inputs
+              - query
+              properties:
+                inputs:
+                  oneOf:
+                  - type: string
+                  - type: array
+                query:
+                  type: array
+                  items:
+                    type: object
+      responses:
+        '200':
+          description: MapReduce result
+          content:
+            application/json:
+              schema:
+                type: array
+      tags:
+      - Mapred
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: 'Riak KV supports optional security with HTTPS and basic auth or
+
+        certificate-based authentication. By default, the HTTP listener is
+
+        unauthenticated.
+
+        '
