@@ -9,7 +9,19 @@ description: >-
   spoken over TCP. Both APIs support buckets, objects, secondary indexes,
   search, MapReduce, and CRDT data types.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/riak.png
 tags:
   - Database
   - NoSQL
@@ -24,52 +36,108 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: riak:http-api
-    name: Riak KV HTTP API
-    description: >-
-      RESTful HTTP API for Riak KV providing GET, PUT, POST, and DELETE
-      access to buckets, objects, secondary indexes, search, MapReduce,
-      and CRDT data types. Default port is 8098. Authentication and
-      authorization are configured via Riak security on the server.
-    humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
-    baseURL: http://<your-riak-host>:8098
-    tags:
-      - HTTP API
-      - Key-Value
-      - Buckets
-      - MapReduce
-      - Secondary Indexes
-    properties:
-      - type: Documentation
-        url: https://docs.riak.com/riak/kv/latest/developing/api/http
-      - type: HTTP Bucket Operations
-        url: https://docs.riak.com/riak/kv/latest/developing/api/http/list-buckets.1.html
-      - type: HTTP Object Operations
-        url: https://docs.riak.com/riak/kv/latest/developing/api/http/fetch-object.1.html
-  - aid: riak:protocol-buffers
-    name: Riak Protocol Buffers Client API
-    description: >-
-      Higher-performance binary client API for Riak KV using Protocol
-      Buffers messages encoded over a long-lived TCP connection. Default
-      port is 8087. Each request message produces one or more response
-      messages on the same connection. Message definitions are published
-      in the open source basho/riak_pb repository.
-    humanURL: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers
-    baseURL: pb://<your-riak-host>:8087
-    tags:
-      - Protocol Buffers
-      - PBC
-      - Binary Protocol
-      - Key-Value
-      - High Performance
-    properties:
-      - type: Documentation
-        url: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers
-      - type: Message Definitions
-        url: https://github.com/basho/riak_pb
-      - type: Encoding Reference
-        url: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers/index.html
-
+- aid: riak:http-api
+  name: Riak KV HTTP API
+  description: >-
+    RESTful HTTP API for Riak KV providing GET, PUT, POST, and DELETE access to buckets, objects, secondary
+    indexes, search, MapReduce, and CRDT data types. Default port is 8098. Authentication and authorization
+    are configured via Riak security on the server.
+  humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
+  baseURL: http://<your-riak-host>:8098
+  tags:
+  - HTTP API
+  - Key-Value
+  - Buckets
+  - MapReduce
+  - Secondary Indexes
+  properties:
+  - type: Documentation
+    url: https://docs.riak.com/riak/kv/latest/developing/api/http
+  - type: HTTP Bucket Operations
+    url: https://docs.riak.com/riak/kv/latest/developing/api/http/list-buckets.1.html
+  - type: HTTP Object Operations
+    url: https://docs.riak.com/riak/kv/latest/developing/api/http/fetch-object.1.html
+- aid: riak:protocol-buffers
+  name: Riak Protocol Buffers Client API
+  description: >-
+    Higher-performance binary client API for Riak KV using Protocol Buffers messages encoded over a long-lived
+    TCP connection. Default port is 8087. Each request message produces one or more response messages
+    on the same connection. Message definitions are published in the open source basho/riak_pb repository.
+  humanURL: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers
+  baseURL: pb://<your-riak-host>:8087
+  tags:
+  - Protocol Buffers
+  - PBC
+  - Binary Protocol
+  - Key-Value
+  - High Performance
+  properties:
+  - type: Documentation
+    url: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers
+  - type: Message Definitions
+    url: https://github.com/basho/riak_pb
+  - type: Encoding Reference
+    url: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers/index.html
+- aid: riak:riak-mapred-api
+  name: Riak KV Mapred API
+  description: The Mapred API from Riak KV — 1 operation(s) for mapred.
+  humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
+  baseURL: http://<your-riak-host>:8098
+  tags:
+  - Mapred
+  properties:
+  - type: OpenAPI
+    url: openapi/riak-mapred-api-openapi.yml
+- aid: riak:riak-ping-api
+  name: Riak KV Ping API
+  description: The Ping API from Riak KV — 1 operation(s) for ping.
+  humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
+  baseURL: http://<your-riak-host>:8098
+  tags:
+  - Ping
+  properties:
+  - type: OpenAPI
+    url: openapi/riak-ping-api-openapi.yml
+- aid: riak:riak-riak-kv-http-api-api
+  name: Riak KV Riak KV HTTP API API
+  description: The Riak KV HTTP API API from Riak KV — 1 operation(s) for riak kv http api.
+  humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
+  baseURL: http://<your-riak-host>:8098
+  tags:
+  - Riak KV HTTP API
+  properties:
+  - type: OpenAPI
+    url: openapi/riak-riak-kv-http-api-api-openapi.yml
+- aid: riak:riak-search-api
+  name: Riak KV Search API
+  description: The Search API from Riak KV — 4 operation(s) for search.
+  humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
+  baseURL: http://<your-riak-host>:8098
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/riak-search-api-openapi.yml
+- aid: riak:riak-stats-api
+  name: Riak KV Stats API
+  description: The Stats API from Riak KV — 1 operation(s) for stats.
+  humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
+  baseURL: http://<your-riak-host>:8098
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/riak-stats-api-openapi.yml
+- aid: riak:riak-types-api
+  name: Riak KV Types API
+  description: The Types API from Riak KV — 7 operation(s) for types.
+  humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
+  baseURL: http://<your-riak-host>:8098
+  tags:
+  - Types
+  properties:
+  - type: OpenAPI
+    url: openapi/riak-types-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/riak-agentic-access.yml
