@@ -1,0 +1,24 @@
+{
+  "provider": "riak",
+  "sources": [
+    "riak-mapred-api-openapi.yml",
+    "riak-ping-api-openapi.yml",
+    "riak-riak-kv-http-api-api-openapi.yml",
+    "riak-search-api-openapi.yml",
+    "riak-stats-api-openapi.yml",
+    "riak-types-api-openapi.yml"
+  ],
+  "outputs": [
+    "riak-mapred-api-openapi.yml",
+    "riak-ping-api-openapi.yml",
+    "riak-riak-kv-http-api-api-openapi.yml",
+    "riak-search-api-openapi.yml",
+    "riak-stats-api-openapi.yml",
+    "riak-types-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
