@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Riak KV HTTP Mapred Riak KV HTTP API API",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Riak KV HTTP API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available HTTP resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/"
+          },
+          "docs": "List available HTTP resources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Riak KV HTTP Mapred Search API",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute a Riak Search (Solr) query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/search/query/:index_name",
+            "params": [
+              {
+                "name": "index_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "wt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Execute a Riak Search (Solr) query"
+        },
+        {
+          "info": {
+            "name": "List all search indexes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/search/index"
+          },
+          "docs": "List all search indexes"
+        },
+        {
+          "info": {
+            "name": "Get a search index definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/search/index/:index_name",
+            "params": [
+              {
+                "name": "index_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a search index definition"
+        },
+        {
+          "info": {
+            "name": "Create or update a search index",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/search/index/:index_name",
+            "params": [
+              {
+                "name": "index_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update a search index"
+        },
+        {
+          "info": {
+            "name": "Delete a search index",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{host}:{port}/search/index/:index_name",
+            "params": [
+              {
+                "name": "index_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a search index"
+        },
+        {
+          "info": {
+            "name": "Get a search schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/search/schema/:schema_name",
+            "params": [
+              {
+                "name": "schema_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a search schema"
+        },
+        {
+          "info": {
+            "name": "Store a search schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/search/schema/:schema_name",
+            "params": [
+              {
+                "name": "schema_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Store a search schema"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

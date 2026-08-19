@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Riak KV HTTP Mapred API",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mapred",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute a MapReduce job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/mapred",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a MapReduce job"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
