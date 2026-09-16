@@ -1,13 +1,10 @@
 aid: riak
 name: Riak KV
-description: >-
-  Riak KV is a distributed NoSQL key-value database originally developed by
-  Basho Technologies, designed for high availability, fault tolerance, and
-  horizontal scalability across commodity hardware. Riak exposes two
-  client-facing APIs: a RESTful HTTP API for basic GET, PUT, POST, and
-  DELETE operations, and a higher-performance Protocol Buffers (PBC) API
-  spoken over TCP. Both APIs support buckets, objects, secondary indexes,
-  search, MapReduce, and CRDT data types.
+description: 'Riak KV is a distributed NoSQL key-value database originally developed by Basho Technologies,
+  designed for high availability, fault tolerance, and horizontal scalability across commodity hardware.
+  Riak exposes two client-facing APIs: a RESTful HTTP API for basic GET, PUT, POST, and DELETE operations,
+  and a higher-performance Protocol Buffers (PBC) API spoken over TCP. Both APIs support buckets, objects,
+  secondary indexes, search, MapReduce, and CRDT data types.'
 type: Index
 deliveryModel:
   model: unknown
@@ -35,33 +32,31 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/riak.png
 tags:
-  - Database
-  - NoSQL
-  - Key-Value Store
-  - Distributed Systems
-  - Open-Source
-  - Basho
-  - CRDT
+- Database
+- NoSQL
+- Key-Value Store
+- Distributed Systems
+- Open-Source
+- Basho
+- CRDT
 tags_raw:
-  - Database
-  - NoSQL
-  - Key-Value Store
-  - Distributed Systems
-  - Open Source
-  - Basho
-  - CRDT
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/riak/refs/heads/main/apis.yml
+- Database
+- NoSQL
+- Key-Value Store
+- Distributed Systems
+- Open Source
+- Basho
+- CRDT
+url: https://raw.githubusercontent.com/api-evangelist/riak/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-11'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: riak:http-api
   name: Riak KV HTTP API
-  description: >-
-    RESTful HTTP API for Riak KV providing GET, PUT, POST, and DELETE access to buckets, objects, secondary
-    indexes, search, MapReduce, and CRDT data types. Default port is 8098. Authentication and authorization
-    are configured via Riak security on the server.
+  description: RESTful HTTP API for Riak KV providing GET, PUT, POST, and DELETE access to buckets, objects,
+    secondary indexes, search, MapReduce, and CRDT data types. Default port is 8098. Authentication and
+    authorization are configured via Riak security on the server.
   humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
   baseURL: http://<your-riak-host>:8098
   tags:
@@ -79,10 +74,10 @@ apis:
     url: https://docs.riak.com/riak/kv/latest/developing/api/http/fetch-object.1.html
 - aid: riak:protocol-buffers
   name: Riak Protocol Buffers Client API
-  description: >-
-    Higher-performance binary client API for Riak KV using Protocol Buffers messages encoded over a long-lived
-    TCP connection. Default port is 8087. Each request message produces one or more response messages
-    on the same connection. Message definitions are published in the open source basho/riak_pb repository.
+  description: Higher-performance binary client API for Riak KV using Protocol Buffers messages encoded
+    over a long-lived TCP connection. Default port is 8087. Each request message produces one or more
+    response messages on the same connection. Message definitions are published in the open source basho/riak_pb
+    repository.
   humanURL: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers
   baseURL: pb://<your-riak-host>:8087
   tags:
@@ -119,7 +114,7 @@ apis:
   - type: OpenAPI
     url: openapi/riak-ping-api-openapi.yml
 - aid: riak:riak-riak-kv-http-api-api
-  name: Riak KV Riak KV HTTP API API
+  name: Riak KV Riak KV HTTP API
   description: The Riak KV HTTP API API from Riak KV — 1 operation(s) for riak kv http api.
   humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
   baseURL: http://<your-riak-host>:8098
@@ -159,92 +154,75 @@ apis:
   - type: OpenAPI
     url: openapi/riak-types-api-openapi.yml
 common:
-  - type: AgenticAccess
-    url: agentic-access/riak-agentic-access.yml
-  - type: DomainSecurity
-    url: security/riak-domain-security.yml
-  - type: Authentication
-    url: authentication/riak-authentication.yml
-  - type: Website
-    url: https://riak.com
-  - type: Documentation
-    url: https://docs.riak.com/riak/kv/latest/
-  - type: API Documentation
-    url: https://docs.riak.com/riak/kv/latest/developing/api/
-  - type: GitHubOrganization
-    url: https://github.com/basho
-  - type: Source Code
-    url: https://github.com/basho/riak
-  - type: Protocol Buffers Repo
-    url: https://github.com/basho/riak_pb
-  - type: Client Libraries
-    url: https://docs.riak.com/riak/kv/latest/developing/client-libraries/
-  - type: Download
-    url: https://docs.riak.com/riak/kv/latest/setup/installing/
-  - type: License
-    url: https://github.com/basho/riak/blob/develop/LICENSE
-  - type: LlmsText
-    url: https://docs.riak.com/llms.txt
+- type: AgenticAccess
+  url: agentic-access/riak-agentic-access.yml
+- type: DomainSecurity
+  url: security/riak-domain-security.yml
+- type: Authentication
+  url: authentication/riak-authentication.yml
+- type: Website
+  url: https://riak.com
+- type: Documentation
+  url: https://docs.riak.com/riak/kv/latest/
+- type: API Documentation
+  url: https://docs.riak.com/riak/kv/latest/developing/api/
+- type: GitHubOrganization
+  url: https://github.com/basho
+- type: Source Code
+  url: https://github.com/basho/riak
+- type: Protocol Buffers Repo
+  url: https://github.com/basho/riak_pb
+- type: Client Libraries
+  url: https://docs.riak.com/riak/kv/latest/developing/client-libraries/
+- type: Download
+  url: https://docs.riak.com/riak/kv/latest/setup/installing/
+- type: License
+  url: https://github.com/basho/riak/blob/develop/LICENSE
+- type: LlmsText
+  url: https://docs.riak.com/llms.txt
 features:
-  - name: Distributed Key-Value Store
-    description: >-
-      Masterless ring-based key-value store with configurable
-      replication and tunable consistency.
-  - name: High Availability
-    description: >-
-      No single point of failure with eventual consistency,
-      hinted handoff, and read repair across the cluster.
-  - name: Secondary Indexes
-    description: >-
-      Tag objects with secondary index terms and query them via
-      the HTTP or Protocol Buffers APIs.
-  - name: MapReduce
-    description: >-
-      Run JavaScript or Erlang MapReduce jobs against buckets
-      and key lists via the API.
-  - name: Riak Search
-    description: >-
-      Full-text search powered by Solr integration with
-      schema-aware indexing of stored objects.
-  - name: CRDT Data Types
-    description: >-
-      Convergent replicated data types including counters,
-      sets, maps, and registers for conflict-free updates.
+- name: Distributed Key-Value Store
+  description: Masterless ring-based key-value store with configurable replication and tunable consistency.
+- name: High Availability
+  description: No single point of failure with eventual consistency, hinted handoff, and read repair across
+    the cluster.
+- name: Secondary Indexes
+  description: Tag objects with secondary index terms and query them via the HTTP or Protocol Buffers
+    APIs.
+- name: MapReduce
+  description: Run JavaScript or Erlang MapReduce jobs against buckets and key lists via the API.
+- name: Riak Search
+  description: Full-text search powered by Solr integration with schema-aware indexing of stored objects.
+- name: CRDT Data Types
+  description: Convergent replicated data types including counters, sets, maps, and registers for conflict-free
+    updates.
 solutions:
-  - name: Highly Available Storage
-    description: >-
-      Deploy as the primary store for applications that must
-      remain available across node and datacenter failures.
-  - name: Session and Profile Storage
-    description: >-
-      Store user sessions, profiles, and preferences at scale
-      with predictable low-latency reads and writes.
-  - name: Distributed Caching
-    description: >-
-      Operate as a durable distributed cache for content and
-      configuration that must survive node failure.
+- name: Highly Available Storage
+  description: Deploy as the primary store for applications that must remain available across node and
+    datacenter failures.
+- name: Session and Profile Storage
+  description: Store user sessions, profiles, and preferences at scale with predictable low-latency reads
+    and writes.
+- name: Distributed Caching
+  description: Operate as a durable distributed cache for content and configuration that must survive
+    node failure.
 useCases:
-  - name: Multi-Datacenter Replication
-    description: >-
-      Replicate data across datacenters for disaster recovery
-      and geographic distribution.
-  - name: IoT and Sensor Data Ingest
-    description: >-
-      Ingest high-volume key-value writes from sensors and
-      devices with horizontal scaling.
-  - name: Shopping Cart Storage
-    description: >-
-      Store shopping carts and other always-writeable data
-      using CRDT data types for conflict-free merging.
+- name: Multi-Datacenter Replication
+  description: Replicate data across datacenters for disaster recovery and geographic distribution.
+- name: IoT and Sensor Data Ingest
+  description: Ingest high-volume key-value writes from sensors and devices with horizontal scaling.
+- name: Shopping Cart Storage
+  description: Store shopping carts and other always-writeable data using CRDT data types for conflict-free
+    merging.
 integrations:
-  - name: Solr
-    description: Full-text indexing via Riak Search powered by Solr
-  - name: Erlang
-    description: Native Erlang client and pluggable MapReduce
-  - name: Java
-    description: Official Java client speaking the Protocol Buffers API
-  - name: Python
-    description: Official Python client supporting HTTP and Protocol Buffers
+- name: Solr
+  description: Full-text indexing via Riak Search powered by Solr
+- name: Erlang
+  description: Native Erlang client and pluggable MapReduce
+- name: Java
+  description: Official Java client speaking the Protocol Buffers API
+- name: Python
+  description: Official Python client supporting HTTP and Protocol Buffers
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
