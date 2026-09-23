@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Riak KV HTTP Mapred Types API
+  title: Riak KV HTTP Types API
   version: '2.2'
   description: 'Riak KV exposes a RESTful HTTP API for interacting with buckets, keys,
 
@@ -10,9 +10,7 @@ info:
 
     over TCP. This specification describes the publicly documented HTTP
 
-    interface as published at docs.riak.com.
-
-    '
+    interface as published at docs.riak.com.'
   contact:
     name: Riak KV documentation
     url: https://docs.riak.com/riak/kv/latest/developing/api/http/
@@ -296,6 +294,12 @@ paths:
       - Types
 components:
   parameters:
+    Bucket:
+      name: bucket
+      in: path
+      required: true
+      schema:
+        type: string
     Type:
       name: type
       in: path
@@ -305,12 +309,6 @@ components:
         type: string
     Key:
       name: key
-      in: path
-      required: true
-      schema:
-        type: string
-    Bucket:
-      name: bucket
       in: path
       required: true
       schema:

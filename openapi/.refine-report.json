@@ -1,12 +1,7 @@
 {
   "provider": "riak",
   "sources": [
-    "riak-mapred-api-openapi.yml",
-    "riak-ping-api-openapi.yml",
-    "riak-riak-kv-http-api-api-openapi.yml",
-    "riak-search-api-openapi.yml",
-    "riak-stats-api-openapi.yml",
-    "riak-types-api-openapi.yml"
+    "_original/riak-openapi.yml"
   ],
   "outputs": [
     "riak-mapred-api-openapi.yml",
@@ -19,6 +14,48 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "riak-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "riak-openapi.yml: tagged paths GET / -> Riak KV HTTP API",
+    "riak-openapi.yml: tagged paths GET /ping -> Ping",
+    "riak-openapi.yml: tagged paths GET /stats -> Stats",
+    "riak-openapi.yml: tagged paths GET /types/{type}/buckets -> Types",
+    "riak-openapi.yml: tagged paths GET /types/{type}/buckets/{bucket}/props -> Types",
+    "riak-openapi.yml: tagged paths PUT /types/{type}/buckets/{bucket}/props -> Types",
+    "riak-openapi.yml: tagged paths DELETE /types/{type}/buckets/{bucket}/props -> Types",
+    "riak-openapi.yml: tagged paths GET /types/{type}/buckets/{bucket}/keys -> Types",
+    "riak-openapi.yml: tagged paths POST /types/{type}/buckets/{bucket}/keys -> Types",
+    "riak-openapi.yml: tagged paths GET /types/{type}/buckets/{bucket}/keys/{key} -> Types",
+    "riak-openapi.yml: tagged paths PUT /types/{type}/buckets/{bucket}/keys/{key} -> Types",
+    "riak-openapi.yml: tagged paths POST /types/{type}/buckets/{bucket}/keys/{key} -> Types",
+    "riak-openapi.yml: tagged paths DELETE /types/{type}/buckets/{bucket}/keys/{key} -> Types",
+    "riak-openapi.yml: tagged paths GET /types/{type}/buckets/{bucket}/index/{index}/{value} -> Types",
+    "riak-openapi.yml: tagged paths GET /types/{type}/buckets/{bucket}/index/{index}/{start}/{end} -> Types",
+    "riak-openapi.yml: tagged paths GET /types/{type}/buckets/{bucket}/datatypes/{key} -> Types",
+    "riak-openapi.yml: tagged paths POST /types/{type}/buckets/{bucket}/datatypes/{key} -> Types",
+    "riak-openapi.yml: tagged paths POST /mapred -> Mapred",
+    "riak-openapi.yml: tagged paths GET /search/query/{index_name} -> Search",
+    "riak-openapi.yml: tagged paths GET /search/index -> Search",
+    "riak-openapi.yml: tagged paths GET /search/index/{index_name} -> Search",
+    "riak-openapi.yml: tagged paths PUT /search/index/{index_name} -> Search",
+    "riak-openapi.yml: tagged paths DELETE /search/index/{index_name} -> Search",
+    "riak-openapi.yml: tagged paths GET /search/schema/{schema_name} -> Search",
+    "riak-openapi.yml: tagged paths PUT /search/schema/{schema_name} -> Search",
+    "riak-openapi.yml: declared missing tag: Mapred",
+    "riak-openapi.yml: declared missing tag: Ping",
+    "riak-openapi.yml: declared missing tag: Riak KV HTTP API",
+    "riak-openapi.yml: declared missing tag: Search",
+    "riak-openapi.yml: declared missing tag: Stats",
+    "riak-openapi.yml: declared missing tag: Types",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "riak-mapred-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "riak-ping-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "riak-riak-kv-http-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "riak-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "riak-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "riak-types-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

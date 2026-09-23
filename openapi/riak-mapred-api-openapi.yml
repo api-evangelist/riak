@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Riak KV HTTP Mapred API
   version: '2.2'
@@ -10,9 +10,7 @@ info:
 
     over TCP. This specification describes the publicly documented HTTP
 
-    interface as published at docs.riak.com.
-
-    '
+    interface as published at docs.riak.com.'
   contact:
     name: Riak KV documentation
     url: https://docs.riak.com/riak/kv/latest/developing/api/http/
