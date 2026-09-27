@@ -36,7 +36,7 @@ tags:
 - NoSQL
 - Key-Value Store
 - Distributed Systems
-- Open-Source
+- Open Source
 - Basho
 - CRDT
 tags_raw:
@@ -47,6 +47,7 @@ tags_raw:
 - Open Source
 - Basho
 - CRDT
+- Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/riak/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-09-16'
@@ -60,6 +61,12 @@ apis:
   humanURL: https://docs.riak.com/riak/kv/latest/developing/api/http
   baseURL: http://<your-riak-host>:8098
   tags:
+  - HTTP API
+  - Key-Value Store
+  - Buckets
+  - MapReduce
+  - Secondary Indexes
+  tags_raw:
   - HTTP API
   - Key-Value
   - Buckets
@@ -81,6 +88,12 @@ apis:
   humanURL: https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers
   baseURL: pb://<your-riak-host>:8087
   tags:
+  - Protocol Buffers
+  - PBC
+  - Binary Protocol
+  - Key-Value Store
+  - High Performance
+  tags_raw:
   - Protocol Buffers
   - PBC
   - Binary Protocol
