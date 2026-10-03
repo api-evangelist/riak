@@ -300,17 +300,17 @@ components:
       required: true
       schema:
         type: string
+    Key:
+      name: key
+      in: path
+      required: true
+      schema:
+        type: string
     Type:
       name: type
       in: path
       required: true
       description: Bucket type (use "default" for the default bucket type)
-      schema:
-        type: string
-    Key:
-      name: key
-      in: path
-      required: true
       schema:
         type: string
   securitySchemes:
