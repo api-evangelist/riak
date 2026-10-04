@@ -294,10 +294,11 @@ paths:
       - Types
 components:
   parameters:
-    Bucket:
-      name: bucket
+    Type:
+      name: type
       in: path
       required: true
+      description: Bucket type (use "default" for the default bucket type)
       schema:
         type: string
     Key:
@@ -306,11 +307,10 @@ components:
       required: true
       schema:
         type: string
-    Type:
-      name: type
+    Bucket:
+      name: bucket
       in: path
       required: true
-      description: Bucket type (use "default" for the default bucket type)
       schema:
         type: string
   securitySchemes:
