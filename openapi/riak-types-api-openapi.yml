@@ -294,6 +294,12 @@ paths:
       - Types
 components:
   parameters:
+    Bucket:
+      name: bucket
+      in: path
+      required: true
+      schema:
+        type: string
     Type:
       name: type
       in: path
@@ -303,12 +309,6 @@ components:
         type: string
     Key:
       name: key
-      in: path
-      required: true
-      schema:
-        type: string
-    Bucket:
-      name: bucket
       in: path
       required: true
       schema:
