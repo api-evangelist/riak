@@ -1,4 +1,4 @@
-# Riak KV (riak)
+# Riak KV
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,89 +66,110 @@
 
 Riak KV is a distributed NoSQL key-value database originally developed by Basho Technologies, designed for high availability, fault tolerance, and horizontal scalability across commodity hardware. Riak exposes two client-facing APIs: a RESTful HTTP API for basic GET, PUT, POST, and DELETE operations, and a higher-performance Protocol Buffers (PBC) API spoken over TCP. Both APIs support buckets, objects, secondary indexes, search, MapReduce, and CRDT data types.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/riak/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/riak/refs/heads/main/apis.yml)
+**Areas:** Database · NoSQL · Key-Value Store · Distributed Systems · Open Source · Basho · CRDT
 
-## Scope
+## Riak KV on APIs.io
 
-- **Type:** Index
+Everything profiled for Riak KV is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/riak/](https://apis.io/providers/riak/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (8)
 
-- Database
-- NoSQL
-- Key-Value Store
-- Distributed Systems
-- Open Source
-- Basho
-- CRDT
+- [Riak KV HTTP API](https://apis.io/apis/riak/http-api/) — RESTful HTTP API for Riak KV providing GET, PUT, POST, and DELETE access to buckets, objects, secondary indexes, search, MapReduce, and CRDT data types.…
+- [Riak Protocol Buffers Client API](https://apis.io/apis/riak/protocol-buffers/) — Higher-performance binary client API for Riak KV using Protocol Buffers messages encoded over a long-lived TCP connection. Default port is 8087. Each…
+- [Riak KV Mapred API](https://apis.io/apis/riak/riak-mapred-api/) — The Mapred API from Riak KV — 1 operation(s) for mapred.
+- [Riak KV Ping API](https://apis.io/apis/riak/riak-ping-api/) — The Ping API from Riak KV — 1 operation(s) for ping.
+- [Riak KV Riak KV HTTP API](https://apis.io/apis/riak/riak-riak-kv-http-api-api/) — The Riak KV HTTP API API from Riak KV — 1 operation(s) for riak kv http api.
+- [Riak KV Search API](https://apis.io/apis/riak/riak-search-api/) — The Search API from Riak KV — 4 operation(s) for search.
+- [Riak KV Stats API](https://apis.io/apis/riak/riak-stats-api/) — The Stats API from Riak KV — 1 operation(s) for stats.
+- [Riak KV Types API](https://apis.io/apis/riak/riak-types-api/) — The Types API from Riak KV — 7 operation(s) for types.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Riak KV HTTP API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-RESTful HTTP API for Riak KV providing GET, PUT, POST, and DELETE access to buckets, objects, secondary indexes, search, MapReduce, and CRDT data types. Default port is 8098. Authentication and authorization are configured via Riak security on the server.
+- [Riak Agentic Access](https://apis.io/agentic-access/riak/riak-agentic-access/)
 
-- **Human URL:** [https://docs.riak.com/riak/kv/latest/developing/api/http](https://docs.riak.com/riak/kv/latest/developing/api/http)
-- **Base URL:** `http://<your-riak-host>:8098`
+#### Collections (7)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- HTTP API
-- Key-Value
-- Buckets
-- MapReduce
-- Secondary Indexes
+- [Riak KV HTTP API](https://apis.io/collections/riak/open-riak/)
+- [Riak KV HTTP Mapred API](https://apis.io/collections/riak/open-riak-mapred-api/)
+- [Riak KV HTTP Mapred Ping API](https://apis.io/collections/riak/open-riak-ping-api/)
+- [Riak KV HTTP Mapred Riak KV HTTP API API](https://apis.io/collections/riak/open-riak-riak-kv-http-api-api/)
+- [Riak KV HTTP Mapred Search API](https://apis.io/collections/riak/open-riak-search-api/)
+- [Riak KV HTTP Mapred Stats API](https://apis.io/collections/riak/open-riak-stats-api/)
+- [Riak KV HTTP Mapred Types API](https://apis.io/collections/riak/open-riak-types-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://docs.riak.com/riak/kv/latest/developing/api/http)
-- [H T T P  Bucket  Operations](https://docs.riak.com/riak/kv/latest/developing/api/http/list-buckets.1.html)
-- [H T T P  Object  Operations](https://docs.riak.com/riak/kv/latest/developing/api/http/fetch-object.1.html)
-- [Postman Collection](collections/riak.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/riak.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Riak Protocol Buffers Client API
+- [Riak Authentication](https://apis.io/security/riak/riak-authentication/)
+- [Riak Domain Security](https://apis.io/security/riak/riak-domain-security/)
 
-Higher-performance binary client API for Riak KV using Protocol Buffers messages encoded over a long-lived TCP connection. Default port is 8087. Each request message produces one or more response messages on the same connection. Message definitions are published in the open source basho/riak_pb repository.
+## Where to find this API
 
-- **Human URL:** [https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers](https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers)
-- **Base URL:** `pb://<your-riak-host>:8087`
-
-#### Tags
-
-- Protocol Buffers
-- PBC
-- Binary Protocol
-- Key-Value
-- High Performance
-
-#### Properties
-
-- [Documentation](https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers)
-- [Message  Definitions](https://github.com/basho/riak_pb)
-- [Encoding  Reference](https://docs.riak.com/riak/kv/latest/developing/api/protocol-buffers/index.html)
-- [Postman Collection](collections/riak.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/riak.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://riak.com)
 - [Documentation](https://docs.riak.com/riak/kv/latest/)
-- [A P I  Documentation](https://docs.riak.com/riak/kv/latest/developing/api/)
-- [GitHub Organization](https://github.com/basho)
-- [Source  Code](https://github.com/basho/riak)
-- [Protocol  Buffers  Repo](https://github.com/basho/riak_pb)
-- [Client  Libraries](https://docs.riak.com/riak/kv/latest/developing/client-libraries/)
-- [Download](https://docs.riak.com/riak/kv/latest/setup/installing/)
-- [License](https://github.com/basho/riak/blob/develop/LICENSE)
-- [L L Ms Txt](https://docs.riak.com/llms.txt)
+- [Blog](https://riak.com/blog/)
+- [GitHub](https://github.com/basho)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 40.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 0.0 |
+
+**Agent readiness 17.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/riak/](https://apis.io/providers/riak/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Riak KV: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/riak/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
